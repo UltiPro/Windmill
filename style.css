@@ -1,17 +1,11 @@
 :root {
     --white: #fff;
-    --green: #119822;
-    --wooden: #a98467;
     --darkWooden: #6c584c;
     --blue: #00bbf9;
     --yellow: #fee440;
-    --lightYellow: #e8da8f;
     --pink: #f15bb5;
-    --aqua: #00f5d4;
     --black: #333;
     --grey: #6c757d;
-    --darkGrey: #5e6572;
-    --red: #ef233c;
 }
 
 * {
@@ -23,65 +17,82 @@
 body {
     min-height: 100vh;
     background: linear-gradient(var(--pink) -55%, var(--blue) 75%);
+    overflow: hidden;
 }
 
 .grass {
     position: absolute;
     bottom: 0;
-    left: 0;
-    height: 25vh;
-    width: 100vw;
-    background-color: var(--green);
+    left: 50vw;
+    height: 45vh;
+    width: 65%;
+    min-width: 1200px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background: linear-gradient(180deg, rgba(47,215,69,1) 0%, rgba(35,176,53,1) 10%, rgba(17,152,34,1) 100%);
     overflow: hidden;
     box-shadow: 0px 0px 3px var(--white);
+    transform: translate(-50%, 50%);
 }
 
-.lake {
-    position: relative;
-    left: 10%;
-    bottom: 5%;
-    width: 300px;
-    height: 100px;
-    background-color: var(--aqua);
+.sun {
+    position: fixed;
+    left: -15%;
+    top: 15%;
+    width: 125px;
+    height: 125px;
+    background-color: var(--yellow);
     border-radius: 50%;
-    box-shadow: 10px 20px 5px var(--lightYellow);
+    box-shadow:
+        0 0 0 20px #FFDE0080,
+        0 0 0 40px #FFDE0040,
+        0 0 0 60px #FFDE0020,
+        0 0 0 80px #FFDE0010,
+        0 0 0 100px #FFDE0000,
+        0 0 40px 100px #FFDE0010;
+    animation:
+        rays 2s 2s infinite linear,
+        sunMove 60s infinite linear;
 }
 
-.lake::before {
-    content: "";
-    position: absolute;
-    left: 5%;
-    bottom: -50%;
-    width: 150px;
-    height: 100px;
-    background-color: var(--aqua);
-    border-radius: 70%;
-    transform: translate(-50%, -50%);
-    box-shadow: -10px -5px 5px var(--lightYellow), -15px 5px 5px var(--lightYellow), -15px 11px 5px var(--lightYellow);
+@keyframes sunMove {
+    to {
+        transform: translateX(130vw);
+    }
 }
 
-.lake::after {
-    content: "";
-    position: absolute;
-    left: 95%;
-    bottom: -25%;
-    width: 200px;
-    height: 100px;
-    background-color: var(--aqua);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 30px 5px 5px var(--lightYellow);
+@keyframes rays {
+    from {
+        box-shadow:
+            0 0 0 0 #FFDE0080,
+            0 0 0 20px #FFDE0080,
+            0 0 0 40px #FFDE0040,
+            0 0 0 60px #FFDE0020,
+            0 0 0 80px #FFDE0010,
+            0 0 40px 100px #FFDE0010;
+    }
+
+    to {
+        box-shadow:
+            0 0 0 20px #FFDE0080,
+            0 0 0 40px #FFDE0040,
+            0 0 0 60px #FFDE0020,
+            0 0 0 80px #FFDE0010,
+            0 0 0 100px #FFDE0000,
+            0 0 40px 100px #FFDE0010;
+    }
 }
 
 .windmill {
     position: absolute;
-    left: 55%;
-    bottom: 25%;
+    left: 50%;
+    bottom: 22%;
     width: 200px;
     height: 325px;
-    background-color: var(--red);
-    border: 1px solid var(--black);
+    background: linear-gradient(90deg, rgba(211, 211, 211, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(211, 211, 211, 1) 100%);
+    ;
     z-index: 1;
+    transform: translateX(-50%);
 }
 
 .windmill::before {
@@ -90,8 +101,7 @@ body {
     bottom: 0;
     height: 20px;
     width: 150%;
-    background-color: var(--black);
-    border: 1px solid var(--black);
+    background: linear-gradient(0deg, rgba(51, 51, 51, 1) 0%, rgba(105, 105, 105, 1) 88%, rgba(255, 255, 255, 1) 100%);
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     transform: translate(-50px, 1px);
@@ -100,14 +110,12 @@ body {
 .windmill::after {
     content: "";
     position: absolute;
-    top: -25%;
-    width: 100%;
-    height: 85px;
-    background-color: var(--darkGrey);
-    border-top-left-radius: 45%;
-    border-top-right-radius: 45%;
-    border: 1px solid var(--black);
-    transform: translateX(-1px);
+    top: -35%;
+    left: -7.5%;
+    width: 115%;
+    height: 35%;
+    background: linear-gradient(0deg, rgba(108, 88, 76, 1) 0%, rgba(169, 132, 103, 1) 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
 .windmill-window {
@@ -159,61 +167,17 @@ body {
     top: 50%;
 }
 
+
 .windmill-blades {
     position: relative;
     top: -45%;
 }
 
-.windmill-blade {
-    position: absolute;
-    left: 22.5%;
-    width: 110px;
-    height: 20px;
-    background-color: var(--wooden);
-    border: 1px solid var(--black);
-    z-index: 2;
-}
-
-.windmill-blade::after {
-    content: "";
-    position: absolute;
-    left: -100%;
-    width: 100%;
-    height: 50px;
-    background-color: var(--white);
-    border-bottom-left-radius: 125px;
-    box-shadow: -5px 5px 5px var(--black);
-}
-
-.windmill-blade:nth-of-type(1) {
-    box-shadow: 0 5px 5px var(--black);
-    transform: translateX(-55%);
-    animation: spinBlade1 5s linear infinite;
-}
-
-.windmill-blade:nth-of-type(2) {
-    box-shadow: 0 5px 5px var(--black);
-    transform: rotate(90deg) translateX(-55%);
-    animation: spinBlade2 5s linear infinite;
-}
-
-.windmill-blade:nth-of-type(3) {
-    box-shadow: 0 5px 5px var(--black);
-    transform: rotate(180deg) translateX(-55%);
-    animation: spinBlade3 5s linear infinite;
-}
-
-.windmill-blade:nth-of-type(4) {
-    box-shadow: 0 5px 5px var(--black);
-    transform: rotate(270deg) translateX(-55%);
-    animation: spinBlade4 5s linear infinite;
-}
-
 .windmill-blades .windmill-circle {
     position: relative;
-    left: 100px;
-    width: 31px;
-    height: 30px;
+    left: 50%;
+    width: 32px;
+    height: 32px;
     transform: translate(-50%, -15%);
     background-color: var(--grey);
     border-radius: 50%;
@@ -224,109 +188,69 @@ body {
 .windmill-blades .windmill-circle::after {
     content: "";
     position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 15px;
-    height: 15px;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
     background-color: var(--black);
+    transform: translate(-50%, -50%);
 }
 
-.sun {
-    position: fixed;
+.windmill-blade {
+    position: absolute;
+    width: 400px;
+    height: 20px;
+    background-color: var(--darkWooden);
+    z-index: 2;
+    transform-origin: 50% 50%;
+}
+
+.windmill-blade.first-blade {
+    transform: translate(-25%, -150%);
+    animation: spinBlade 11s linear infinite;
+}
+
+.windmill-blade.second-blade {
+    transform: translate(-25%, -150%) rotate(90deg);
+    animation: spinBlade-second 11s linear infinite;
+}
+
+.windmill-blade::after {
+    content: "";
+    position: absolute;
     left: -15%;
-    top: 15%;
-    width: 125px;
-    height: 125px;
-    background-color: var(--yellow);
-    border-radius: 50%;
-    box-shadow:
-        0 0 0 20px #FFDE0080,
-        0 0 0 40px #FFDE0040,
-        0 0 0 60px #FFDE0020,
-        0 0 0 80px #FFDE0010,
-        0 0 0 100px #FFDE0000,
-        0 0 40px 100px #FFDE0010;
-    animation:
-        sunRise 2s infinite linear forwards,
-        rays 2s 2s infinite linear,
-        sunMove 60s infinite linear;
+    width: 40%;
+    height: 60px;
+    border-top: 5px solid var(--darkWooden);
+    border-right: 5px solid var(--darkWooden);
+    background: linear-gradient(transparent 40%, hsl(0 0% 0% / 0.125) 0 60%, transparent 0) center / 100% 10%,
+        linear-gradient(90deg, transparent 40%, hsl(0 0% 0% / 0.125) 0 60%, transparent 0) center / 20% 100% var(--white);
+    border-bottom-left-radius: 50%;
 }
 
-@keyframes sunMove {
-    form {
-        transform: translateX(-10vw);
-    }
+.windmill-blade::before {
+    content: "";
+    position: absolute;
+    right: -15%;
+    top: calc(-200% - 5px);
+    width: 40%;
+    height: 60px;
+    border-bottom: 5px solid var(--darkWooden);
+    border-left: 5px solid var(--darkWooden);
+    background: linear-gradient(transparent 40%, hsl(0 0% 0% / 0.125) 0 60%, transparent 0) center / 100% 10%,
+        linear-gradient(90deg, transparent 40%, hsl(0 0% 0% / 0.125) 0 60%, transparent 0) center / 20% 100% var(--white);
+    border-top-right-radius: 50%;
+}
 
+@keyframes spinBlade {
     to {
-        transform: translateX(130vw);
+        transform: translate(-25%, -150%) rotate(360deg);
     }
 }
 
-@keyframes sunRise {
-    0% {
-        box-shadow: none;
-    }
-}
-
-@keyframes rays {
-    0% {
-        box-shadow:
-            0 0 0 0 #FFDE0080,
-            0 0 0 20px #FFDE0080,
-            0 0 0 40px #FFDE0040,
-            0 0 0 60px #FFDE0020,
-            0 0 0 80px #FFDE0010,
-            0 0 40px 100px #FFDE0010;
-    }
-
-    100% {
-        box-shadow:
-            0 0 0 20px #FFDE0080,
-            0 0 0 40px #FFDE0040,
-            0 0 0 60px #FFDE0020,
-            0 0 0 80px #FFDE0010,
-            0 0 0 100px #FFDE0000,
-            0 0 40px 100px #FFDE0010;
-    }
-}
-
-@keyframes spinBlade1 {
-    from {
-        transform: rotate(0deg) translateX(-55%);
-    }
-
+@keyframes spinBlade-second {
     to {
-        transform: rotate(90deg) translateX(-55%);
-    }
-}
-
-@keyframes spinBlade2 {
-    from {
-        transform: rotate(90deg) translateX(-55%);
-    }
-
-    to {
-        transform: rotate(180deg) translateX(-55%);
-    }
-}
-
-@keyframes spinBlade3 {
-    from {
-        transform: rotate(180deg) translateX(-55%);
-    }
-
-    to {
-        transform: rotate(270deg) translateX(-55%);
-    }
-}
-
-@keyframes spinBlade4 {
-    from {
-        transform: rotate(270deg) translateX(-55%);
-    }
-
-    to {
-        transform: rotate(360deg) translateX(-55%);
+        transform: translate(-25%, -150%) rotate(450deg);
     }
 }
