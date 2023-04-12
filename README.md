@@ -1,4 +1,4 @@
-# Windmill-CSS
+# Windmill
 Project Windmill in CSS by Patryk 'UltiPro' Wójtowicz.
 
 Just download and enjoy :>
