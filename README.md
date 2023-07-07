@@ -1,8 +1,8 @@
 # Windmill
-Project Windmill in CSS by Patryk 'UltiPro' Wójtowicz.
+Windmill created by Patryk 'UltiPro' Wójtowicz using HTML and CSS.
 
-Just download and enjoy :>
+Simple animation.
 
-# Short preview of animation
+# Preview
 
-![Windmill on hill at sunny day](Windmill.gif)
+![Windmill preview gif](Windmill.gif)
