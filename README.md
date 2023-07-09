@@ -1,7 +1,7 @@
 # Windmill
 Windmill created by Patryk 'UltiPro' Wójtowicz using HTML and CSS.
 
-Simple animation
+Simple animation.
 
 # Preview
 
